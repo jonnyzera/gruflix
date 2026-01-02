@@ -3,13 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serviços Especializados | GRUFIX - Suporte Técnico de Elite</title>
+    
+    <!-- SEO Básico -->
+    <title>Serviços de Assistência Técnica em Guarulhos | Celular, PC e Redes - GRUFIX</title>
+    <meta name="description" content="Conheça os serviços de elite da GRUFIX em Guarulhos: Conserto de celulares (iPhone/Android), manutenção de computadores, redes Wi-Fi mesh, suporte empresarial e instalação de câmeras. Atendimento in-loco.">
+    <meta name="keywords" content="conserto de celular guarulhos, manutenção de pc guarulhos, rede wifi guarulhos, suporte ti empresas guarulhos, técnico de informática residencial">
+    <meta name="author" content="GRUFIX">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.grufix.com.br/servicos.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.grufix.com.br/servicos.html">
+    <meta property="og:title" content="Serviços Especializados de TI em Guarulhos | GRUFIX">
+    <meta property="og:description" content="Suporte técnico de elite: Manutenção de hardware, redes, mobile e segurança no local.">
+    <meta property="og:image" content="https://www.grufix.com.br/assets/og-servicos.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.grufix.com.br/servicos.html">
+    <meta property="twitter:title" content="Serviços Especializados de TI em Guarulhos | GRUFIX">
+    <meta property="twitter:description" content="Elite em tecnologia: Reparação de dispositivos e soluções corporativas in-loco.">
+
+    <!-- Dados Estruturados (JSON-LD) - Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Assistência Técnica de Informática e Celular",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "GRUFIX",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Guarulhos",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        }
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Guarulhos"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Catálogo de Serviços GRUFIX",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Manutenção de PCs e Notebooks"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Conserto de Celulares e Tablets"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Configuração de Redes e Wi-Fi"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
         :root {
             --brand-green: #76ff03;
@@ -39,11 +111,30 @@
         .energy-pulse { position: absolute; width: 100%; height: 100%; border: 1px solid var(--brand-green); border-radius: 50%; opacity: 0.15; animation: pulse-ring 3s infinite ease-out; }
         @keyframes pulse-ring { 0% { transform: scale(0.9); opacity: 0.3; } 100% { transform: scale(1.4); opacity: 0; } }
 
-        /* MENU MOBILE */
+        /* MENU MOBILE - RESPONSIVIDADE */
         .nav-menu { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        
         @media (max-width: 768px) {
-            .nav-menu { position: fixed; top: -100%; left: 0; width: 100%; background: #080808; flex-direction: column; padding: 2.5rem; gap: 1.5rem; border-bottom: 2px solid var(--color-primary); z-index: 100; }
-            .nav-menu.active { top: 70px; }
+            .nav-menu { 
+                display: flex !important; 
+                position: fixed; 
+                top: -100%; 
+                left: 0; 
+                width: 100%; 
+                background: #080808; 
+                flex-direction: column; 
+                padding: 2.5rem; 
+                gap: 1.5rem; 
+                border-bottom: 2px solid var(--color-primary); 
+                z-index: 100;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .nav-menu.active { 
+                top: 70px; 
+                opacity: 1;
+                pointer-events: auto;
+            }
         }
 
         .glass-card { 
@@ -110,245 +201,239 @@
 <body class="overflow-x-hidden">
 
     <!-- Navegação -->
-    <nav class="navbar fixed top-0 w-full z-[110] transition-all duration-300 h-20 flex items-center px-6 lg:px-12">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-4 relative z-[120]">
-                <div class="logo-icon-small">
-                    <div class="energy-pulse"></div>
-                    <svg class="icon-svg" viewBox="0 0 200 200">
-                        <path fill="none" stroke="#76ff03" stroke-width="18" d="M160,100 A60,60 0 1,1 140,55" stroke-linecap="round"/>
-                        <path fill="white" d="M100,75 L120,100 L100,125 L80,100 Z" />
-                    </svg>
-                </div>
-                <span class="brand-logo-text text-xl uppercase tracking-tighter">GRU<span>FIX</span></span>
-            </a>
+    <header>
+        <nav class="navbar fixed top-0 w-full z-[110] transition-all duration-300 h-20 flex items-center px-6 lg:px-12">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="index.html" class="flex items-center gap-4 relative z-[120]" aria-label="GRUFIX Home">
+                    <div class="logo-icon-small">
+                        <div class="energy-pulse"></div>
+                        <svg class="icon-svg" viewBox="0 0 200 200" aria-hidden="true">
+                            <path fill="none" stroke="#76ff03" stroke-width="18" d="M160,100 A60,60 0 1,1 140,55" stroke-linecap="round"/>
+                            <path fill="white" d="M100,75 L120,100 L100,125 L80,100 Z" />
+                        </svg>
+                    </div>
+                    <span class="brand-logo-text text-xl uppercase tracking-tighter">GRU<span>FIX</span></span>
+                </a>
 
-            <ul class="nav-menu hidden md:flex items-center gap-8">
-                <li><a href="index.html" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Início</a></li>
-                <li><a href="comofunciona.html" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
-                <li><a href="servicos.html" class="font-bold text-[10px] uppercase tracking-widest text-[#76ff03]">Serviços</a></li>
-                <li><a href="index.html#contato" class="bg-[#76ff03] text-black px-7 py-2.5 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg shadow-[#76ff03]/10">Chamar Técnico</a></li>
-            </ul>
+                <ul class="nav-menu hidden md:flex items-center gap-8">
+                    <li><a href="index.html" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Início</a></li>
+                    <li><a href="comofunciona.html" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
+                    <li><a href="servicos.html" class="font-bold text-[10px] uppercase tracking-widest text-[#76ff03]">Serviços</a></li>
+                    <li><a href="index.html#contato" class="bg-[#76ff03] text-black px-7 py-2.5 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg shadow-[#76ff03]/10">Chamar Técnico</a></li>
+                </ul>
 
-            <button id="mobileToggle" class="md:hidden p-2 text-[#76ff03] relative z-[120]">
-                <i data-lucide="menu" class="w-7 h-7"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Header (Hero Padronizado) -->
-    <section class="pt-32 pb-16 px-6 text-center">
-        <div class="container mx-auto max-w-4xl">
-            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
-                <span class="w-1.5 h-1.5 bg-[#76ff03] rounded-full"></span>
-                <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">Soluções de Alta Performance</span>
+                <button id="mobileToggle" class="md:hidden p-2 text-[#76ff03] relative z-[120]" aria-label="Abrir Menu">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
             </div>
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-none uppercase mb-8">
-                Elite em <br> <span class="text-[#76ff03]">Tecnologia.</span>
-            </h1>
-            <p class="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto">
-                Cada serviço executado com o rigor e a precisão que seu equipamento merece. Conheça nossas soluções especializadas em Guarulhos.
-            </p>
-        </div>
-    </section>
+        </nav>
+    </header>
 
-    <!-- Grid de Serviços Padronizado -->
-    <section id="solucoes" class="py-32 px-6">
-        <div class="container mx-auto max-w-7xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Serviço 1: Hardware -->
-                <div class="reveal glass-card rounded-[35px] flex flex-col group h-full">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=800" alt="Hardware">
-                        <div class="icon-overlay">
-                            <i data-lucide="cpu" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                    <div class="p-10 space-y-6 flex-grow flex flex-col">
-                        <span class="service-badge self-start">Hardware</span>
-                        <h3 class="text-xl font-black uppercase tracking-tight">Manutenção de PCs & Notes</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed flex-grow">Limpeza técnica preventiva, troca de pasta térmica de alta performance, substituição de telas, teclados e baterias.</p>
-                        <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Upgrade de Memória e SSD</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Reparo em Placa Mãe</li>
-                        </ul>
-                    </div>
+    <main>
+        <!-- Header (Hero) -->
+        <section class="pt-32 pb-16 px-6 text-center">
+            <div class="container mx-auto max-w-4xl">
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
+                    <span class="w-1.5 h-1.5 bg-[#76ff03] rounded-full"></span>
+                    <span class="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">Soluções de Alta Performance em Guarulhos</span>
                 </div>
-
-                <!-- Serviço 2: Conectividade (IMAGEM ATUALIZADA) -->
-                <div class="reveal glass-card rounded-[35px] flex flex-col group h-full border-[#76ff03]/20">
-                    <div class="card-image-container">
-                        <img src="https://i.pinimg.com/736x/40/39/70/4039703514eda25cbb04d843fbbfbf1f.jpg" alt="Redes Elite">
-                        <div class="icon-overlay">
-                            <i data-lucide="wifi" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                    <div class="p-10 space-y-6 flex-grow flex flex-col">
-                        <span class="service-badge self-start">Conectividade</span>
-                        <h3 class="text-xl font-black uppercase tracking-tight text-[#76ff03]">Redes & Wi-Fi Elite</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed flex-grow">Configuração de roteadores mesh para cobertura total, cabeamento estruturado e segurança corporativa.</p>
-                        <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                            <li class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-[#76ff03]"></i> Fim dos Pontos Cegos</li>
-                            <li class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-[#76ff03]"></i> VPN de Alta Segurança</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Serviço 3: Mobile (IMAGEM ATUALIZADA) -->
-                <div class="reveal glass-card rounded-[35px] flex flex-col group h-full">
-                    <div class="card-image-container">
-                        <img src="https://i.pinimg.com/736x/98/b4/04/98b404c5949d2e6577bbb9f0cc5d3f05.jpg" alt="Smartphones e Tablets">
-                        <div class="icon-overlay">
-                            <i data-lucide="smartphone" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                    <div class="p-10 space-y-6 flex-grow flex flex-col">
-                        <span class="service-badge self-start">Mobile</span>
-                        <h3 class="text-xl font-black uppercase tracking-tight">Smartphones & Tablets</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed flex-grow">Troca de tela express, baterias originais e reparo de conectores. Atendimento iPhone e Android in-loco.</p>
-                        <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Reparo na Frente do Cliente</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Peças Premium</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Serviço 4: Software -->
-                <div class="reveal glass-card rounded-[35px] flex flex-col group h-full">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" alt="Software">
-                        <div class="icon-overlay">
-                            <i data-lucide="terminal" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                    <div class="p-10 space-y-6 flex-grow flex flex-col">
-                        <span class="service-badge self-start">Sistemas</span>
-                        <h3 class="text-xl font-black uppercase tracking-tight">Software & Vírus</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed flex-grow">Formatação profissional com backup, remoção de malwares e instalação de softwares originais.</p>
-                        <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Otimização de Boot</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Recuperação de Dados</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Serviço 5: Segurança -->
-                <div class="reveal glass-card rounded-[35px] flex flex-col group h-full">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" alt="Segurança">
-                        <div class="icon-overlay">
-                            <i data-lucide="shield-check" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                    <div class="p-10 space-y-6 flex-grow flex flex-col">
-                        <span class="service-badge self-start">Monitoramento</span>
-                        <h3 class="text-xl font-black uppercase tracking-tight">Câmeras & Segurança</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed flex-grow">Instalação e configuração de câmeras IP com monitoramento remoto pelo smartphone.</p>
-                        <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Acesso Remoto Vitalício</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Gravação em Nuvem</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Serviço 6: Setup -->
-                <div class="reveal glass-card rounded-[35px] flex flex-col group h-full">
-                    <div class="card-image-container">
-                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=800" alt="Setup">
-                        <div class="icon-overlay">
-                            <i data-lucide="palette" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-                    <div class="p-10 space-y-6 flex-grow flex flex-col">
-                        <span class="service-badge self-start">Setup Elite</span>
-                        <h3 class="text-xl font-black uppercase tracking-tight">Montagem de Setups</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed flex-grow">Consultoria e montagem de PCs gamer, organização de cabos e iluminação RGB profissional.</p>
-                        <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Performance Máxima</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Cable Management</li>
-                        </ul>
-                    </div>
-                </div>
-
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-none uppercase mb-8">
+                    Elite em <br> <span class="text-[#76ff03]">Tecnologia.</span>
+                </h1>
+                <p class="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto">
+                    Conheça a gama completa de serviços da GRUFIX. Da reparação de hardware à segurança de redes, entregamos excelência técnica em todo o município de Guarulhos.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Banner Corporativo Padronizado -->
-    <section class="py-32 px-6 bg-[#030303]">
-        <div class="container mx-auto max-w-7xl">
-            <div class="glass-card rounded-[50px] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 border-white/5 overflow-hidden">
-                <div class="lg:w-1/2 space-y-8">
-                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">Soluções <br><span class="text-[#76ff03]">Corporativas</span></h2>
-                    <p class="text-gray-400 text-lg leading-relaxed italic">Segurança e continuidade para sua empresa. Planos de manutenção mensal para zero tempo de inatividade.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-widest text-[#76ff03]">
-                            <i data-lucide="shield" class="w-4 h-4"></i> Proteção de Dados
+        <!-- Grid de Serviços -->
+        <section id="solucoes" class="py-32 px-6">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Serviço 1: Hardware -->
+                    <article class="reveal glass-card rounded-[35px] flex flex-col group h-full">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=800" alt="Manutenção de Computadores e Notebooks em Guarulhos">
+                            <div class="icon-overlay" aria-hidden="true">
+                                <i data-lucide="cpu" class="w-5 h-5"></i>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-widest text-white">
-                            <i data-lucide="clock" class="w-4 h-4"></i> Suporte Prioritário
+                        <div class="p-10 space-y-6 flex-grow flex flex-col">
+                            <span class="service-badge self-start">Hardware</span>
+                            <h3 class="text-xl font-black uppercase tracking-tight">Manutenção de PCs & Notebooks</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed flex-grow">Limpeza técnica, troca de pasta térmica, upgrades de SSD/RAM e reparação de placas-mãe. Soluções para PC Gamer e estações de trabalho.</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Upgrade de SSD e Memória</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Reparo In-Loco</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" alt="Suporte Empresas" class="w-full h-[400px] object-cover rounded-[35px] opacity-60">
+                    </article>
+
+                    <!-- Serviço 2: Conectividade -->
+                    <article class="reveal glass-card rounded-[35px] flex flex-col group h-full border-[#76ff03]/20">
+                        <div class="card-image-container">
+                            <img src="https://i.pinimg.com/736x/40/39/70/4039703514eda25cbb04d843fbbfbf1f.jpg" alt="Instalação de Redes Wi-Fi Elite em Guarulhos">
+                            <div class="icon-overlay" aria-hidden="true">
+                                <i data-lucide="wifi" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-10 space-y-6 flex-grow flex flex-col">
+                            <span class="service-badge self-start">Conectividade</span>
+                            <h3 class="text-xl font-black uppercase tracking-tight text-[#76ff03]">Redes & Wi-Fi Elite</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed flex-grow">Configuração de sistemas Mesh, roteadores de alta performance e cabeamento estruturado. Fim definitivo dos pontos cegos de sinal.</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                <li class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-[#76ff03]"></i> Cobertura Total</li>
+                                <li class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 text-[#76ff03]"></i> Segurança Wi-Fi</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Serviço 3: Mobile -->
+                    <article class="reveal glass-card rounded-[35px] flex flex-col group h-full">
+                        <div class="card-image-container">
+                            <img src="https://i.pinimg.com/736x/98/b4/04/98b404c5949d2e6577bbb9f0cc5d3f05.jpg" alt="Conserto de Celular iPhone e Android em Guarulhos">
+                            <div class="icon-overlay" aria-hidden="true">
+                                <i data-lucide="smartphone" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-10 space-y-6 flex-grow flex flex-col">
+                            <span class="service-badge self-start">Mobile</span>
+                            <h3 class="text-xl font-black uppercase tracking-tight">Smartphones & Tablets</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed flex-grow">Troca de tela express, baterias originais e reparo de conectores de carga. Atendimento especializado em Apple e marcas Android.</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Reparo Express</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Peças Premium</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Serviço 4: Software -->
+                    <article class="reveal glass-card rounded-[35px] flex flex-col group h-full">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" alt="Formatação e Remoção de Vírus">
+                            <div class="icon-overlay" aria-hidden="true">
+                                <i data-lucide="terminal" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-10 space-y-6 flex-grow flex flex-col">
+                            <span class="service-badge self-start">Sistemas</span>
+                            <h3 class="text-xl font-black uppercase tracking-tight">Software & Segurança</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed flex-grow">Formatação com backup seguro, remoção de vírus/malwares e instalação de softwares originais. Otimização completa do sistema.</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Backup em Nuvem</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Recuperação de Dados</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Serviço 5: Segurança -->
+                    <article class="reveal glass-card rounded-[35px] flex flex-col group h-full">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&q=80&w=800" alt="Instalação de Câmeras de Segurança em Guarulhos">
+                            <div class="icon-overlay" aria-hidden="true">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-10 space-y-6 flex-grow flex flex-col">
+                            <span class="service-badge self-start">Monitoramento</span>
+                            <h3 class="text-xl font-black uppercase tracking-tight">Câmeras & Segurança</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed flex-grow">Instalação de sistemas CFTV e câmeras IP inteligentes. Monitorização remota via telemóvel para casas e empresas.</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Acesso Remoto</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Gravação 24h</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <!-- Serviço 6: Setup -->
+                    <article class="reveal glass-card rounded-[35px] flex flex-col group h-full">
+                        <div class="card-image-container">
+                            <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&q=80&w=800" alt="Montagem de PC Gamer e Setup Profissional">
+                            <div class="icon-overlay" aria-hidden="true">
+                                <i data-lucide="palette" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-10 space-y-6 flex-grow flex flex-col">
+                            <span class="service-badge self-start">Setup Elite</span>
+                            <h3 class="text-xl font-black uppercase tracking-tight">Consultoria de Setups</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed flex-grow">Montagem de PCs de alto desempenho, organização de cabos (cable management) e iluminação RGB para criadores de conteúdo.</p>
+                            <ul class="space-y-3 border-t border-white/5 pt-6 text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Performance Máxima</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-[#76ff03]"></i> Estética Profissional</li>
+                            </ul>
+                        </div>
+                    </article>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Rodapé (Idêntico ao Index com Facebook) -->
+        <!-- Banner Corporativo -->
+        <section class="py-32 px-6 bg-[#030303]">
+            <div class="container mx-auto max-w-7xl">
+                <div class="glass-card rounded-[50px] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 border-white/5 overflow-hidden">
+                    <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
+                        <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">Suporte <br><span class="text-[#76ff03]">Empresarial</span></h2>
+                        <p class="text-gray-400 text-lg leading-relaxed italic">Soluções tecnológicas para pequenas e médias empresas em Guarulhos. Planos mensais com suporte prioritário.</p>
+                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-widest text-[#76ff03]">
+                                <i data-lucide="shield" class="w-4 h-4"></i> Proteção de Dados
+                            </div>
+                            <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-widest text-white">
+                                <i data-lucide="clock" class="w-4 h-4"></i> SLA Prioritário
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=800" alt="Suporte TI para Empresas em Guarulhos" class="w-full h-[400px] object-cover rounded-[35px] opacity-60">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
     <footer class="pt-24 pb-12 px-6 border-t border-white/5 bg-[#030303]">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div class="space-y-6">
                     <a href="index.html" class="flex items-center gap-3">
-                        <div class="logo-icon-small scale-90">
-                            <div class="energy-pulse"></div>
-                            <svg class="icon-svg" viewBox="0 0 200 200">
-                                <path fill="none" stroke="#76ff03" stroke-width="18" d="M160,100 A60,60 0 1,1 140,55" stroke-linecap="round"/>
-                                <path fill="white" d="M100,75 L120,100 L100,125 L80,100 Z" />
-                            </svg>
-                        </div>
                         <span class="brand-logo-text text-xl uppercase">GRU<span>FIX</span></span>
                     </a>
-                    <p class="text-gray-500 text-sm leading-relaxed italic">Assistência técnica de elite em Guarulhos. Conveniência e performance in-loco.</p>
+                    <p class="text-gray-500 text-sm leading-relaxed italic">Assistência técnica de elite em Guarulhos. Conveniência e performance in-loco para celulares e PCs.</p>
                     
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-all hover:bg-white/10">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-all" aria-label="Instagram">
                             <i data-lucide="instagram" class="w-5 h-5"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-all hover:bg-white/10">
-                            <i data-lucide="facebook" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://wa.me/5511980960531" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-all hover:bg-white/10">
+                        <a href="https://wa.me/5511980960531" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-all" aria-label="WhatsApp">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
                         </a>
                     </div>
                 </div>
 
                 <div class="space-y-6">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Navegação</h4>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Links Rápidos</h4>
                     <ul class="space-y-3">
-                        <li><a href="index.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Início</a></li>
-                        <li><a href="comofunciona.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
-                        <li><a href="servicos.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors text-white">Serviços</a></li>
+                        <li><a href="index.html" class="text-gray-500 text-sm hover:text-[#76ff03]">Início</a></li>
+                        <li><a href="comofunciona.html" class="text-gray-500 text-sm hover:text-[#76ff03]">Como Funciona</a></li>
+                        <li><a href="servicos.html" class="text-gray-500 text-sm text-[#76ff03]">Serviços Especializados</a></li>
                     </ul>
                 </div>
 
                 <div class="space-y-6">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Serviços</h4>
-                    <ul class="space-y-3 text-gray-500 text-sm font-medium">
-                        <li>Manutenção de Celular</li>
-                        <li>Manutenção de PC</li>
-                        <li>Redes & Wi-Fi Elite</li>
-                        <li>Suporte Empresarial</li>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Nossas Especialidades</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li>Reparação de Hardware</li>
+                        <li>Conserto de iPhone/Android</li>
+                        <li>Redes Wi-Fi Elite</li>
+                        <li>Suporte In-Loco</li>
                     </ul>
                 </div>
 
                 <div class="space-y-6">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Contacto</h4>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Contacte-nos</h4>
                     <ul class="space-y-4">
                         <li class="flex items-center gap-3 text-gray-500 text-sm">
                             <i data-lucide="phone" class="w-4 h-4 text-[#76ff03]"></i> (11) 98096-0531
@@ -362,13 +447,13 @@
 
             <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">&copy; 2024 GRUFIX | Todos os direitos reservados.</div>
-                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">Powered by <span class="text-white hover:text-[#76ff03] cursor-pointer">KODEO</span></div>
+                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">Desenvolvido por <a href="https://www.kodeo.site/" target="_blank" class="text-white hover:text-[#76ff03]">KODEO</a></div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Flutuante -->
-    <a href="https://wa.me/5511980960531" target="_blank" class="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-90 transition-all z-[200]">
+    <!-- Botão WhatsApp -->
+    <a href="https://wa.me/5511980960531" target="_blank" class="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-90 transition-all z-[200]" aria-label="Falar no WhatsApp">
         <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
     </a>
 
@@ -379,11 +464,20 @@
         // Menu Mobile
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.querySelector('.nav-menu');
-        mobileToggle.addEventListener('click', () => {
+        
+        const toggleMenu = () => {
             navMenu.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
             icon.setAttribute('data-lucide', navMenu.classList.contains('active') ? 'x' : 'menu');
             lucide.createIcons();
+        };
+
+        mobileToggle.addEventListener('click', toggleMenu);
+
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(navMenu.classList.contains('active')) toggleMenu();
+            });
         });
 
         // Navbar Scroll
@@ -391,7 +485,7 @@
             document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Revelação ao Scroll
+        // Animação de Revelação
         const revealElements = () => {
             const reveals = document.querySelectorAll('.reveal');
             reveals.forEach(el => {

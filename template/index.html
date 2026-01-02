@@ -64,10 +64,12 @@
             100% { transform: scale(1.4); opacity: 0; }
         }
 
-        /* MENU MOBILE */
+        /* MENU MOBILE - CORREÇÃO DE RESPONSIVIDADE */
         .nav-menu { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        
         @media (max-width: 768px) {
             .nav-menu { 
+                display: flex !important; /* Garante que o flex funcione quando a classe active for adicionada */
                 position: fixed; 
                 top: -100%; 
                 left: 0; 
@@ -77,9 +79,15 @@
                 padding: 2.5rem; 
                 gap: 1.5rem; 
                 border-bottom: 2px solid var(--color-primary); 
-                z-index: 100; 
+                z-index: 100;
+                opacity: 0;
+                pointer-events: none;
             }
-            .nav-menu.active { top: 70px; }
+            .nav-menu.active { 
+                top: 70px; 
+                opacity: 1;
+                pointer-events: auto;
+            }
         }
 
         /* EFEITOS VISUAIS */
@@ -301,7 +309,7 @@
                     <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-8">O Fundador: <span class="text-[#76ff03]">João Victor.</span></h2>
                     <div class="space-y-6 text-gray-400 text-lg leading-relaxed">
                         <p>
-                            Nascido e criado em <span class="text-white font-bold">Guarulhos</span>, João Victor é o fundador da GRUFIX e a mente por trás de cada operação técnica de elite na região. Com uma trajetória marcada pela precisão absoluta, ele trouxe um novo conceito de transparência para o mercado de assistência.
+                            Nascido e criado em <span class="text-white font-bold">Guarulhos</span>, João Victor é the fundador da GRUFIX e a mente por trás de cada operação técnica de elite na região. Com uma trajetória marcada pela precisão absoluta, ele trouxe um novo conceito de transparência para o mercado de assistência.
                         </p>
                         <p>
                             Como fundador, a sua missão principal é garantir que a tecnologia seja uma aliada da sua produtividade, e não uma dor de cabeça. "Na GRUFIX, não apenas reparamos máquinas; devolvemos tranquilidade e performance aos nossos clientes", afirma João.
@@ -468,11 +476,21 @@
         // Menu Mobile
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.querySelector('.nav-menu');
-        mobileToggle.addEventListener('click', () => {
+        
+        const toggleMenu = () => {
             navMenu.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
             icon.setAttribute('data-lucide', navMenu.classList.contains('active') ? 'x' : 'menu');
             lucide.createIcons();
+        };
+
+        mobileToggle.addEventListener('click', toggleMenu);
+
+        // Fecha o menu ao clicar em um link (melhor UX no mobile)
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(navMenu.classList.contains('active')) toggleMenu();
+            });
         });
 
         // Navbar Scroll

@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Como Funciona | GRUFIX - Assistência Técnica de Elite</title>
+    
     <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
-    <!-- Tailwind -->
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
         :root {
             --brand-green: #76ff03;
@@ -17,6 +21,7 @@
             --color-primary-dark: #64d602;
             --glow: rgba(118, 255, 3, 0.15);
         }
+
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background-color: #050505; 
@@ -35,15 +40,47 @@
         
         .brand-logo-text { font-family: 'Syncopate', sans-serif; font-weight: 700; letter-spacing: -2px; }
         .brand-logo-text span { color: var(--brand-green); }
+        
         .logo-icon-small { position: relative; width: 38px; height: 38px; }
-        .energy-pulse { position: absolute; width: 100%; height: 100%; border: 1px solid var(--brand-green); border-radius: 50%; opacity: 0.15; animation: pulse-ring 3s infinite ease-out; }
-        @keyframes pulse-ring { 0% { transform: scale(0.9); opacity: 0.3; } 100% { transform: scale(1.4); opacity: 0; } }
+        .energy-pulse { 
+            position: absolute; 
+            width: 100%; 
+            height: 100%; 
+            border: 1px solid var(--brand-green); 
+            border-radius: 50%; 
+            opacity: 0.15; 
+            animation: pulse-ring 3s infinite ease-out; 
+        }
 
-        /* MENU MOBILE */
+        @keyframes pulse-ring { 
+            0% { transform: scale(0.9); opacity: 0.3; } 
+            100% { transform: scale(1.4); opacity: 0; } 
+        }
+
+        /* MENU MOBILE - FIX RESPONSIVIDADE */
         .nav-menu { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        
         @media (max-width: 768px) {
-            .nav-menu { position: fixed; top: -100%; left: 0; width: 100%; background: #080808; flex-direction: column; padding: 2.5rem; gap: 1.5rem; border-bottom: 2px solid var(--color-primary); z-index: 100; }
-            .nav-menu.active { top: 70px; }
+            .nav-menu { 
+                display: flex !important; 
+                position: fixed; 
+                top: -100%; 
+                left: 0; 
+                width: 100%; 
+                background: #080808; 
+                flex-direction: column; 
+                padding: 2.5rem; 
+                gap: 1.5rem; 
+                border-bottom: 2px solid var(--color-primary); 
+                z-index: 100;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .nav-menu.active { 
+                top: 70px; 
+                opacity: 1;
+                pointer-events: auto;
+            }
         }
 
         .glass-card { 
@@ -54,27 +91,30 @@
         }
         .glass-card:hover { border-color: rgba(118, 255, 3, 0.3); background: rgba(255, 255, 255, 0.03); }
 
-        /* Timeline Step numbers */
+        /* Timeline Step numbers - FIX Compatibilidade */
         .step-number {
             background: linear-gradient(135deg, var(--brand-green), #ffffff);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        /* Animações de Revelação */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 1.5rem; }
-        .faq-item.active .faq-icon { transform: rotate(180deg); }
+        /* FAQ Estilização */
+        .faq-item { border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 1.5rem; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); color: white; }
         
         .icon-svg { width: 100%; height: 100%; }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Navegação (Idêntica ao Index) -->
+    <!-- Navegação -->
     <nav class="navbar fixed top-0 w-full z-[110] transition-all duration-300 h-20 flex items-center px-6 lg:px-12">
         <div class="container mx-auto flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-4 relative z-[120]">
@@ -101,80 +141,88 @@
         </div>
     </nav>
 
-    <!-- Header -->
-    <section class="pt-40 pb-20 px-6">
+    <!-- Header Hero -->
+    <header class="pt-40 pb-20 px-6">
         <div class="container mx-auto text-center max-w-4xl">
-            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
+            <div class="reveal inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 active">
                 <span class="w-1.5 h-1.5 bg-[#76ff03] rounded-full"></span>
                 <span class="text-[9px] font-black uppercase tracking-[0.3em] text-gray-400">Transparência & Comodidade</span>
             </div>
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none uppercase mb-8">
+            <h1 class="reveal text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none uppercase mb-8 active">
                 O Futuro da <br> <span class="text-[#76ff03]">Assistência.</span>
             </h1>
-            <p class="text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-                Descubra como a GRUFIX transforma a manutenção do seu computador em uma experiência sem estresse, sem filas e totalmente transparente.
+            <p class="reveal text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed active">
+                Descubra como a GRUFIX transforma a manutenção técnica em uma experiência sem estresse, sem filas e totalmente transparente na sua frente.
             </p>
         </div>
-    </section>
+    </header>
 
-    <!-- Fluxo de Atendimento -->
+    <!-- Fluxo de Atendimento (Timeline) -->
     <section id="fluxo" class="py-20 px-6 relative">
         <div class="container mx-auto max-w-5xl">
-            <!-- Linha Timeline -->
+            
+            <!-- Linha Central (Desktop apenas) -->
             <div class="hidden md:block absolute left-1/2 top-40 bottom-40 w-px bg-gradient-to-b from-transparent via-[#76ff03]/30 to-transparent -translate-x-1/2"></div>
 
-            <div class="space-y-24">
+            <div class="space-y-24 md:space-y-40">
+                
                 <!-- Passo 1 -->
                 <div class="reveal flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left relative">
                     <div class="md:w-1/2 md:pr-12 lg:pr-20 md:text-right flex flex-col items-center md:items-end order-2 md:order-1">
-                        <span class="step-number text-6xl font-black mb-4">01</span>
-                        <h3 class="text-2xl font-extrabold uppercase mb-4 tracking-tight">Primeiro Contato</h3>
-                        <p class="text-gray-400 font-medium">Fale conosco pelo site ou WhatsApp. Um especialista fará uma triagem rápida para entender sua necessidade técnica.</p>
+                        <span class="step-number text-6xl md:text-8xl font-black mb-4">01</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold uppercase mb-4 tracking-tight">Primeiro Contato</h3>
+                        <p class="text-gray-400 font-medium text-base md:text-lg">Fale conosco pelo site ou WhatsApp. Um especialista fará uma triagem rápida para entender sua necessidade técnica em segundos.</p>
                     </div>
-                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.2)]">
+                    
+                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.3)] shrink-0">
                         <i data-lucide="message-circle" class="w-8 h-8 text-[#76ff03]"></i>
                     </div>
-                    <div class="md:w-1/2 md:pl-12 lg:pl-20 order-3">
-                        <div class="glass-card p-6 rounded-[30px] border-white/5">
-                            <img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=600" alt="Atendimento" class="w-full h-40 object-cover rounded-2xl mb-4 opacity-70">
+
+                    <div class="md:w-1/2 md:pl-12 lg:pl-20 order-3 w-full">
+                        <div class="glass-card p-4 rounded-[30px] border-white/5">
+                            <img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=600" alt="Atendimento Inicial" class="w-full h-48 md:h-64 object-cover rounded-2xl opacity-60">
                         </div>
                     </div>
                 </div>
 
-                <!-- Passo 2 - O Agendamento (IMAGEM ATUALIZADA) -->
+                <!-- Passo 2 -->
                 <div class="reveal flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left relative">
-                    <div class="w-full md:w-1/2 md:pr-12 lg:pr-20 md:text-right order-3 md:order-1">
-                        <div class="glass-card p-6 rounded-[30px] border-white/5">
-                            <!-- IMAGEM ATUALIZADA: Representação de agendamento e organização técnica -->
-                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=600" alt="Agendamento Técnico" class="w-full h-40 object-cover rounded-2xl mb-4 opacity-70">
+                    <div class="md:w-1/2 md:pr-12 lg:pr-20 order-3 md:order-1 w-full">
+                        <div class="glass-card p-4 rounded-[30px] border-white/5">
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=600" alt="Agendamento" class="w-full h-48 md:h-64 object-cover rounded-2xl opacity-60">
                         </div>
                     </div>
-                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.2)]">
+
+                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.3)] shrink-0">
                         <i data-lucide="calendar" class="w-8 h-8 text-[#76ff03]"></i>
                     </div>
-                    <div class="w-full md:w-1/2 md:pl-12 lg:pl-20 order-2 md:order-3 flex flex-col items-center md:items-start">
-                        <span class="step-number text-6xl font-black mb-4">02</span>
-                        <h3 class="text-2xl font-extrabold uppercase mb-4 tracking-tight">O Agendamento</h3>
-                        <p class="text-gray-400 font-medium">Definimos a janela de horário que melhor se adapta à sua rotina. Atendimento residencial ou corporativo com pontualidade elite.</p>
+
+                    <div class="md:w-1/2 md:pl-12 lg:pl-20 order-2 md:order-3 flex flex-col items-center md:items-start">
+                        <span class="step-number text-6xl md:text-8xl font-black mb-4">02</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold uppercase mb-4 tracking-tight">O Agendamento</h3>
+                        <p class="text-gray-400 font-medium text-base md:text-lg">Definimos a janela de horário que melhor se adapta à sua rotina. Atendimento residencial ou corporativo com pontualidade elite em toda Guarulhos.</p>
                     </div>
                 </div>
 
                 <!-- Passo 3 -->
                 <div class="reveal flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left relative">
                     <div class="md:w-1/2 md:pr-12 lg:pr-20 md:text-right flex flex-col items-center md:items-end order-2 md:order-1">
-                        <span class="step-number text-6xl font-black mb-4">03</span>
-                        <h3 class="text-2xl font-extrabold uppercase mb-4 tracking-tight">Solução Local</h3>
-                        <p class="text-gray-400 font-medium">O técnico chega ao local. O diagnóstico é feito na sua frente, com total transparência e segurança para seus dados.</p>
+                        <span class="step-number text-6xl md:text-8xl font-black mb-4">03</span>
+                        <h3 class="text-2xl md:text-3xl font-extrabold uppercase mb-4 tracking-tight">Solução Local</h3>
+                        <p class="text-gray-400 font-medium text-base md:text-lg">O técnico chega ao local. O diagnóstico é feito na sua frente, com total transparência, explicando cada detalhe do reparo e segurança para seus dados.</p>
                     </div>
-                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.2)]">
+
+                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.3)] shrink-0">
                         <i data-lucide="zap" class="w-8 h-8 text-[#76ff03]"></i>
                     </div>
-                    <div class="md:w-1/2 md:pl-12 lg:pl-20 order-3">
-                        <div class="glass-card p-6 rounded-[30px] border-white/5">
-                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=400" alt="Reparo" class="w-full h-40 object-cover rounded-2xl mb-4 opacity-70">
+
+                    <div class="md:w-1/2 md:pl-12 lg:pl-20 order-3 w-full">
+                        <div class="glass-card p-4 rounded-[30px] border-white/5">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=600" alt="Solução Técnica" class="w-full h-48 md:h-64 object-cover rounded-2xl opacity-60">
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -182,41 +230,51 @@
     <!-- FAQ -->
     <section class="py-32 px-6">
         <div class="container mx-auto max-w-3xl">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">Dúvidas <span class="text-[#76ff03]">Frequentes</span></h2>
-                <p class="text-gray-500 font-bold text-xs uppercase tracking-widest">O que você precisa saber</p>
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter">Dúvidas <span class="text-[#76ff03]">Frequentes</span></h2>
+                <p class="text-gray-500 font-bold text-[10px] uppercase tracking-widest">Tudo o que você precisa saber sobre a GRUFIX</p>
             </div>
 
             <div class="space-y-4">
-                <div class="faq-item group cursor-pointer p-6 glass-card rounded-[25px]">
+                <div class="faq-item group cursor-pointer p-6 glass-card rounded-[30px]">
                     <div class="flex justify-between items-center mb-4">
-                        <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base">Tem taxa de visita técnica?</h4>
+                        <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base pr-4">Tem taxa de visita técnica?</h4>
                         <div class="faq-icon transition-transform duration-300"><i data-lucide="chevron-down" class="text-[#76ff03]"></i></div>
                     </div>
-                    <div class="faq-answer text-gray-400 text-sm leading-relaxed">
-                        A visita tem um valor fixo de deslocamento e diagnóstico. Se o serviço for aprovado, esse valor é abatido no total final conforme política vigente.
+                    <div class="faq-answer text-gray-400 text-sm md:text-base leading-relaxed">
+                        Sim, a visita possui um valor fixo que cobre o deslocamento do técnico e o diagnóstico especializado inicial. Caso o orçamento do serviço seja aprovado, esse valor da visita é totalmente abatido do total final.
                     </div>
                 </div>
 
-                <div class="faq-item group cursor-pointer p-6 glass-card rounded-[25px]">
+                <div class="faq-item group cursor-pointer p-6 glass-card rounded-[30px]">
                     <div class="flex justify-between items-center mb-4">
-                        <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base">Quais regiões a GRUFIX atende?</h4>
+                        <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base pr-4">Quais regiões a GRUFIX atende?</h4>
                         <div class="faq-icon transition-transform duration-300"><i data-lucide="chevron-down" class="text-[#76ff03]"></i></div>
                     </div>
-                    <div class="faq-answer text-gray-400 text-sm leading-relaxed">
-                        Atendemos toda Guarulhos e pontos estratégicos da Grande São Paulo. Consulte seu CEP via WhatsApp.
+                    <div class="faq-answer text-gray-400 text-sm md:text-base leading-relaxed">
+                        Focamos nosso atendimento em toda a cidade de Guarulhos e pontos estratégicos da Grande São Paulo. Para confirmar seu endereço, basta enviar seu CEP pelo nosso WhatsApp oficial.
+                    </div>
+                </div>
+
+                <div class="faq-item group cursor-pointer p-6 glass-card rounded-[30px]">
+                    <div class="flex justify-between items-center mb-4">
+                        <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base pr-4">Quais formas de pagamento são aceitas?</h4>
+                        <div class="faq-icon transition-transform duration-300"><i data-lucide="chevron-down" class="text-[#76ff03]"></i></div>
+                    </div>
+                    <div class="faq-answer text-gray-400 text-sm md:text-base leading-relaxed">
+                        Aceitamos Pix, cartões de débito e crédito (com possibilidade de parcelamento). O pagamento é realizado apenas após a conclusão e teste do serviço executado.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Rodapé (Idêntico ao Index) -->
+    <!-- Rodapé -->
     <footer class="pt-24 pb-12 px-6 border-t border-white/5 bg-[#030303]">
         <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 text-center md:text-left">
                 <div class="space-y-6">
-                    <a href="index.html" class="flex items-center gap-3">
+                    <a href="index.html" class="flex items-center gap-3 justify-center md:justify-start">
                         <div class="logo-icon-small scale-90">
                             <div class="energy-pulse"></div>
                             <svg class="icon-svg" viewBox="0 0 200 200">
@@ -226,38 +284,39 @@
                         </div>
                         <span class="brand-logo-text text-xl uppercase">GRU<span>FIX</span></span>
                     </a>
-                    <p class="text-gray-500 text-sm leading-relaxed">Assistência técnica de elite focada em conveniência e performance. Levamos a solução até si.</p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
-                        <a href="https://wa.me/5511980960531" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-colors"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+                    <p class="text-gray-500 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">Assistência técnica de elite focada em conveniência e performance em Guarulhos. Levamos a solução até você.</p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-all hover:bg-white/10"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="https://wa.me/5511980960531" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-all hover:bg-white/10"><i data-lucide="message-circle" class="w-5 h-5"></i></a>
                     </div>
                 </div>
 
                 <div class="space-y-6">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Navegação</h4>
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-white">Navegação</h4>
                     <ul class="space-y-3">
                         <li><a href="index.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Início</a></li>
-                        <li><a href="comofunciona.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
+                        <li><a href="comofunciona.html" class="text-[#76ff03] text-sm">Como Funciona</a></li>
                         <li><a href="servicos.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Serviços</a></li>
                     </ul>
                 </div>
 
                 <div class="space-y-6">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Serviços</h4>
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-white">Especialidades</h4>
                     <ul class="space-y-3 text-gray-500 text-sm font-medium">
+                        <li>Reparo de Hardware</li>
+                        <li>Redes & Wi-Fi Elite</li>
                         <li>Manutenção de Celular</li>
-                        <li>Manutenção de PC</li>
-                        <li>Redes & Wi-Fi</li>
+                        <li>Suporte Empresarial</li>
                     </ul>
                 </div>
 
                 <div class="space-y-6">
-                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Contacto</h4>
+                    <h4 class="text-[10px] font-black uppercase tracking-widest text-white">Contato</h4>
                     <ul class="space-y-4">
-                        <li class="flex items-center gap-3 text-gray-500 text-sm">
+                        <li class="flex items-center gap-3 text-gray-500 text-sm justify-center md:justify-start">
                             <i data-lucide="phone" class="w-4 h-4 text-[#76ff03]"></i> (11) 98096-0531
                         </li>
-                        <li class="flex items-center gap-3 text-gray-500 text-sm">
+                        <li class="flex items-center gap-3 text-gray-500 text-sm justify-center md:justify-start">
                             <i data-lucide="mail" class="w-4 h-4 text-[#76ff03]"></i> suporte@grufix.com.br
                         </li>
                     </ul>
@@ -265,45 +324,81 @@
             </div>
 
             <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">&copy; 2024 GRUFIX | Todos os direitos reservados.</div>
-                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">Desenvolvido por <span class="text-white">KODEO</span></div>
+                <div class="text-[9px] text-gray-600 font-bold uppercase tracking-widest">&copy; 2024 GRUFIX | Todos os direitos reservados.</div>
+                <div class="text-[9px] text-gray-600 font-bold uppercase tracking-widest">Desenvolvido por <span class="text-white hover:text-[#76ff03] cursor-pointer">KODEO</span></div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Flutuante -->
-    <a href="https://wa.me/5511980960531" target="_blank" class="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-90 transition-all z-[200]">
-        <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5511980960531" target="_blank" class="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:scale-110 active:scale-90 transition-all z-[200]">
+        <i data-lucide="message-circle" class="w-7 h-7 text-white fill-current"></i>
     </a>
 
     <!-- Scripts -->
     <script>
+        // Inicializa ícones
         lucide.createIcons();
 
+        // Lógica de Menu Mobile
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.querySelector('.nav-menu');
-        mobileToggle.addEventListener('click', () => {
+        
+        const toggleMenu = () => {
             navMenu.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
-            icon.setAttribute('data-lucide', navMenu.classList.contains('active') ? 'x' : 'menu');
+            const isActive = navMenu.classList.contains('active');
+            
+            icon.setAttribute('data-lucide', isActive ? 'x' : 'menu');
             lucide.createIcons();
-        });
-
-        window.addEventListener('scroll', () => {
-            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        const revealElements = () => {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
-            });
+            
+            // Bloqueia scroll quando menu aberto
+            document.body.style.overflow = isActive ? 'hidden' : 'auto';
         };
-        window.addEventListener('scroll', revealElements);
-        window.addEventListener('load', revealElements);
 
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => item.classList.toggle('active'));
+        mobileToggle.addEventListener('click', toggleMenu);
+
+        // Fecha menu ao clicar nos links
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if(navMenu.classList.contains('active')) toggleMenu();
+            });
         });
+
+        // Navbar Efeito Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Interação
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Fecha outros FAQs abertos
+                document.querySelectorAll('.faq-item').forEach(other => {
+                    other.classList.remove('active');
+                });
+                
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
+        // Revelação de Elementos ao Scroll (Intersection Observer)
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
