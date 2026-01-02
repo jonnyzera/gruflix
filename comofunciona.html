@@ -3,61 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Como Funciona | PlugGo Store - Suporte Técnico Móvel</title>
+    <title>Como Funciona | GRUFIX - Assistência Técnica de Elite</title>
     <!-- Fontes -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --color-primary: #7ed957;
-            --color-primary-dark: #6bc244;
+            --brand-green: #76ff03;
+            --color-primary: #76ff03;
+            --color-primary-dark: #64d602;
+            --glow: rgba(118, 255, 3, 0.15);
         }
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #080808; 
+            background-color: #050505; 
             color: #f5f5f5; 
             margin: 0;
             padding: 0;
         }
         
+        /* NAVBAR DINÂMICA */
         .navbar.scrolled { 
-            background: rgba(8, 8, 8, 0.95); 
+            background: rgba(5, 5, 5, 0.9); 
             backdrop-filter: blur(20px); 
-            border-bottom: 1px solid rgba(126, 217, 87, 0.1); 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
             height: 70px; 
         }
         
+        .brand-logo-text { font-family: 'Syncopate', sans-serif; font-weight: 700; letter-spacing: -2px; }
+        .brand-logo-text span { color: var(--brand-green); }
+        .logo-icon-small { position: relative; width: 38px; height: 38px; }
+        .energy-pulse { position: absolute; width: 100%; height: 100%; border: 1px solid var(--brand-green); border-radius: 50%; opacity: 0.15; animation: pulse-ring 3s infinite ease-out; }
+        @keyframes pulse-ring { 0% { transform: scale(0.9); opacity: 0.3; } 100% { transform: scale(1.4); opacity: 0; } }
+
+        /* MENU MOBILE */
         .nav-menu { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         @media (max-width: 768px) {
-            .nav-menu { 
-                position: fixed; 
-                top: -100%; 
-                left: 0; 
-                width: 100%; 
-                background: #080808; 
-                flex-direction: column; 
-                padding: 2.5rem; 
-                gap: 1.5rem; 
-                border-bottom: 2px solid var(--color-primary); 
-                z-index: 100; 
-            }
+            .nav-menu { position: fixed; top: -100%; left: 0; width: 100%; background: #080808; flex-direction: column; padding: 2.5rem; gap: 1.5rem; border-bottom: 2px solid var(--color-primary); z-index: 100; }
             .nav-menu.active { top: 70px; }
         }
 
         .glass-card { 
-            background: rgba(255, 255, 255, 0.02); 
+            background: rgba(255, 255, 255, 0.015); 
             border: 1px solid rgba(255, 255, 255, 0.05); 
             backdrop-filter: blur(10px); 
             transition: all 0.3s ease; 
         }
-        .glass-card:hover { border-color: var(--color-primary); background: rgba(126, 217, 87, 0.03); }
+        .glass-card:hover { border-color: rgba(118, 255, 3, 0.3); background: rgba(255, 255, 255, 0.03); }
 
         /* Timeline Step numbers */
         .step-number {
-            background: linear-gradient(135deg, var(--color-primary), #4ade80);
+            background: linear-gradient(135deg, var(--brand-green), #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -69,53 +68,60 @@
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
         .faq-item.active .faq-answer { max-height: 200px; padding-bottom: 1.5rem; }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
+        
+        .icon-svg { width: 100%; height: 100%; }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Navegação -->
+    <!-- Navegação (Idêntica ao Index) -->
     <nav class="navbar fixed top-0 w-full z-[110] transition-all duration-300 h-20 flex items-center px-6 lg:px-12">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3 relative z-[120]">
-                <div class="w-10 h-10 bg-white rounded-xl overflow-hidden flex items-center justify-center border-2 border-[#7ed957]">
-                    <img src="jonnyzera/pluggo/pluggo-ae323842ba59fcfbd3ef834e25d09744e78cc2c0/temple/upload/PlugGo.jpeg" alt="Logo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/40'">
+            <a href="index.html" class="flex items-center gap-4 relative z-[120]">
+                <div class="logo-icon-small">
+                    <div class="energy-pulse"></div>
+                    <svg class="icon-svg" viewBox="0 0 200 200">
+                        <path fill="none" stroke="#76ff03" stroke-width="18" d="M160,100 A60,60 0 1,1 140,55" stroke-linecap="round"/>
+                        <path fill="white" d="M100,75 L120,100 L100,125 L80,100 Z" />
+                    </svg>
                 </div>
-                <span class="text-xl font-extrabold tracking-tighter uppercase">PLUGGO<span class="text-[#7ed957]">STORE</span></span>
+                <span class="brand-logo-text text-xl uppercase tracking-tighter">GRU<span>FIX</span></span>
             </a>
 
             <ul class="nav-menu hidden md:flex items-center gap-8">
-                <li><a href="index.html" class="font-bold text-[11px] uppercase tracking-widest hover:text-[#7ed957] transition-colors">Início</a></li>
-                <li><a href="#fluxo" class="font-bold text-[11px] uppercase tracking-widest text-[#7ed957]">Como Funciona</a></li>
-                <li><a href="index.html#servicos" class="font-bold text-[11px] uppercase tracking-widest hover:text-[#7ed957] transition-colors">Serviços</a></li>
-                <li><a href="index.html#contato" class="bg-[#7ed957] text-black px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-white transition-all">Chamar Técnico</a></li>
+                <li><a href="index.html" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Início</a></li>
+                <li><a href="comofunciona.html" class="font-bold text-[10px] uppercase tracking-widest text-[#76ff03]">Como Funciona</a></li>
+                <li><a href="servicos.html" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Serviços</a></li>
+                <li><a href="index.html#contato" class="bg-[#76ff03] text-black px-7 py-2.5 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg shadow-[#76ff03]/10">Chamar Técnico</a></li>
             </ul>
 
-            <button id="mobileToggle" class="md:hidden p-2 text-[#7ed957] relative z-[120]">
+            <button id="mobileToggle" class="md:hidden p-2 text-[#76ff03] relative z-[120]">
                 <i data-lucide="menu" class="w-7 h-7"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Header da Página -->
+    <!-- Header -->
     <section class="pt-40 pb-20 px-6">
         <div class="container mx-auto text-center max-w-4xl">
             <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
-                <span class="text-[9px] font-black uppercase tracking-[0.3em] text-[#7ed957]">Transparência & Comodidade</span>
+                <span class="w-1.5 h-1.5 bg-[#76ff03] rounded-full"></span>
+                <span class="text-[9px] font-black uppercase tracking-[0.3em] text-gray-400">Transparência & Comodidade</span>
             </div>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none uppercase mb-8">
-                O Futuro da <br> <span class="text-[#7ed957]">Assistência.</span>
+                O Futuro da <br> <span class="text-[#76ff03]">Assistência.</span>
             </h1>
             <p class="text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-                Descubra como transformamos a manutenção do seu computador em uma experiência sem estresse, sem filas e totalmente transparente.
+                Descubra como a GRUFIX transforma a manutenção do seu computador em uma experiência sem estresse, sem filas e totalmente transparente.
             </p>
         </div>
     </section>
 
-    <!-- Fluxo de Atendimento (Timeline) -->
+    <!-- Fluxo de Atendimento -->
     <section id="fluxo" class="py-20 px-6 relative">
         <div class="container mx-auto max-w-5xl">
-            <!-- Linha Central (Desktop) -->
-            <div class="hidden md:block absolute left-1/2 top-40 bottom-40 w-px bg-gradient-to-b from-transparent via-[#7ed957]/30 to-transparent -translate-x-1/2"></div>
+            <!-- Linha Timeline -->
+            <div class="hidden md:block absolute left-1/2 top-40 bottom-40 w-px bg-gradient-to-b from-transparent via-[#76ff03]/30 to-transparent -translate-x-1/2"></div>
 
             <div class="space-y-24">
                 <!-- Passo 1 -->
@@ -123,38 +129,33 @@
                     <div class="md:w-1/2 md:pr-12 lg:pr-20 md:text-right flex flex-col items-center md:items-end order-2 md:order-1">
                         <span class="step-number text-6xl font-black mb-4">01</span>
                         <h3 class="text-2xl font-extrabold uppercase mb-4 tracking-tight">Primeiro Contato</h3>
-                        <p class="text-gray-400 font-medium">Você nos envia uma mensagem detalhando o problema. Pode ser pelo formulário no site ou direto no WhatsApp. Um técnico real (não um bot) fará uma triagem inicial gratuita.</p>
+                        <p class="text-gray-400 font-medium">Fale conosco pelo site ou WhatsApp. Um especialista fará uma triagem rápida para entender sua necessidade técnica.</p>
                     </div>
-                    <div class="w-20 h-20 rounded-full bg-[#080808] border-4 border-[#7ed957] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(126,217,87,0.3)]">
-                        <i data-lucide="message-circle" class="w-8 h-8 text-[#7ed957]"></i>
+                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.2)]">
+                        <i data-lucide="message-circle" class="w-8 h-8 text-[#76ff03]"></i>
                     </div>
                     <div class="md:w-1/2 md:pl-12 lg:pl-20 order-3">
-                        <div class="glass-card p-6 rounded-[30px] border-[#7ed957]/10">
-                            <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?auto=format&fit=crop&q=80&w=400" alt="Atendimento" class="w-full h-40 object-cover rounded-2xl mb-4">
-                            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Tempo de resposta médio: 15 min</span>
+                        <div class="glass-card p-6 rounded-[30px] border-white/5">
+                            <img src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80&w=600" alt="Atendimento" class="w-full h-40 object-cover rounded-2xl mb-4 opacity-70">
                         </div>
                     </div>
                 </div>
 
-                <!-- Passo 2 -->
+                <!-- Passo 2 - O Agendamento (IMAGEM ATUALIZADA) -->
                 <div class="reveal flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left relative">
-                    <div class="md:w-1/2 md:pr-12 lg:pr-20 md:text-right hidden md:block order-1">
-                        <div class="glass-card p-6 rounded-[30px] border-[#7ed957]/10">
-                            <img src="https://images.unsplash.com/photo-1506784919140-50b8442a043c?auto=format&fit=crop&q=80&w=400" alt="Agendamento" class="w-full h-40 object-cover rounded-2xl mb-4">
-                            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Flexibilidade Total de Horários</span>
+                    <div class="w-full md:w-1/2 md:pr-12 lg:pr-20 md:text-right order-3 md:order-1">
+                        <div class="glass-card p-6 rounded-[30px] border-white/5">
+                            <!-- IMAGEM ATUALIZADA: Representação de agendamento e organização técnica -->
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&q=80&w=600" alt="Agendamento Técnico" class="w-full h-40 object-cover rounded-2xl mb-4 opacity-70">
                         </div>
                     </div>
-                    <div class="w-20 h-20 rounded-full bg-[#080808] border-4 border-[#7ed957] flex items-center justify-center z-10 order-2 shadow-[0_0_30px_rgba(126,217,87,0.3)]">
-                        <i data-lucide="calendar" class="w-8 h-8 text-[#7ed957]"></i>
+                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.2)]">
+                        <i data-lucide="calendar" class="w-8 h-8 text-[#76ff03]"></i>
                     </div>
-                    <div class="md:w-1/2 md:pl-12 lg:pl-20 order-3 flex flex-col items-center md:items-start">
+                    <div class="w-full md:w-1/2 md:pl-12 lg:pl-20 order-2 md:order-3 flex flex-col items-center md:items-start">
                         <span class="step-number text-6xl font-black mb-4">02</span>
                         <h3 class="text-2xl font-extrabold uppercase mb-4 tracking-tight">O Agendamento</h3>
-                        <p class="text-gray-400 font-medium">Diferente de assistências comuns, nós trabalhamos com janelas de horário precisas. Você escolhe o dia e a hora que melhor se adaptam à sua rotina, em casa ou no escritório.</p>
-                        <!-- Mobile Image -->
-                        <div class="md:hidden mt-6 glass-card p-4 rounded-[30px] w-full">
-                             <img src="https://images.unsplash.com/photo-1506784919140-50b8442a043c?auto=format&fit=crop&q=80&w=400" alt="Agendamento" class="w-full h-40 object-cover rounded-2xl">
-                        </div>
+                        <p class="text-gray-400 font-medium">Definimos a janela de horário que melhor se adapta à sua rotina. Atendimento residencial ou corporativo com pontualidade elite.</p>
                     </div>
                 </div>
 
@@ -162,38 +163,15 @@
                 <div class="reveal flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left relative">
                     <div class="md:w-1/2 md:pr-12 lg:pr-20 md:text-right flex flex-col items-center md:items-end order-2 md:order-1">
                         <span class="step-number text-6xl font-black mb-4">03</span>
-                        <h3 class="text-2xl font-extrabold uppercase mb-4 tracking-tight">Técnico na Porta</h3>
-                        <p class="text-gray-400 font-medium">Nosso técnico chega ao local devidamente identificado. O diagnóstico é feito na sua frente, com explicações claras sobre o que precisa ser feito e por quê.</p>
+                        <h3 class="text-2xl font-extrabold uppercase mb-4 tracking-tight">Solução Local</h3>
+                        <p class="text-gray-400 font-medium">O técnico chega ao local. O diagnóstico é feito na sua frente, com total transparência e segurança para seus dados.</p>
                     </div>
-                    <div class="w-20 h-20 rounded-full bg-[#080808] border-4 border-[#7ed957] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(126,217,87,0.3)]">
-                        <i data-lucide="user-check" class="w-8 h-8 text-[#7ed957]"></i>
+                    <div class="w-20 h-20 rounded-full bg-[#050505] border-4 border-[#76ff03] flex items-center justify-center z-10 order-1 md:order-2 shadow-[0_0_30px_rgba(118,255,3,0.2)]">
+                        <i data-lucide="zap" class="w-8 h-8 text-[#76ff03]"></i>
                     </div>
                     <div class="md:w-1/2 md:pl-12 lg:pl-20 order-3">
-                        <div class="glass-card p-6 rounded-[30px] border-[#7ed957]/10">
-                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=400" alt="Visita Técnica" class="w-full h-40 object-cover rounded-2xl mb-4">
-                            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Segurança e Transparência</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Passo 4 -->
-                <div class="reveal flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left relative">
-                    <div class="md:w-1/2 md:pr-12 lg:pr-20 md:text-right hidden md:block order-1">
-                        <div class="glass-card p-6 rounded-[30px] border-[#7ed957]/10">
-                            <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80&w=400" alt="Reparo" class="w-full h-40 object-cover rounded-2xl mb-4">
-                            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Pronto para uso imediato</span>
-                        </div>
-                    </div>
-                    <div class="w-20 h-20 rounded-full bg-[#080808] border-4 border-[#7ed957] flex items-center justify-center z-10 order-2 shadow-[0_0_30px_rgba(126,217,87,0.3)]">
-                        <i data-lucide="zap" class="w-8 h-8 text-[#7ed957]"></i>
-                    </div>
-                    <div class="md:w-1/2 md:pl-12 lg:pl-20 order-3 flex flex-col items-center md:items-start">
-                        <span class="step-number text-6xl font-black mb-4">04</span>
-                        <h3 class="text-2xl font-extrabold uppercase mb-4 tracking-tight">Execução e Garantia</h3>
-                        <p class="text-gray-400 font-medium">90% dos problemas são resolvidos na hora. Você testa o equipamento, aprova o serviço e recebe sua garantia digital. Pagamento facilitado via Pix ou Cartão.</p>
-                        <!-- Mobile Image -->
-                        <div class="md:hidden mt-6 glass-card p-4 rounded-[30px] w-full">
-                             <img src="https://images.unsplash.com/photo-1597733336794-12d05021d510?auto=format&fit=crop&q=80&w=400" alt="Reparo" class="w-full h-40 object-cover rounded-2xl">
+                        <div class="glass-card p-6 rounded-[30px] border-white/5">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=400" alt="Reparo" class="w-full h-40 object-cover rounded-2xl mb-4 opacity-70">
                         </div>
                     </div>
                 </div>
@@ -205,126 +183,126 @@
     <section class="py-32 px-6">
         <div class="container mx-auto max-w-3xl">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">Dúvidas <span class="text-[#7ed957]">Frequentes</span></h2>
-                <p class="text-gray-500 font-bold text-xs uppercase tracking-widest">O que você precisa saber antes de agendar</p>
+                <h2 class="text-3xl md:text-5xl font-black uppercase italic tracking-tighter mb-4">Dúvidas <span class="text-[#76ff03]">Frequentes</span></h2>
+                <p class="text-gray-500 font-bold text-xs uppercase tracking-widest">O que você precisa saber</p>
             </div>
 
             <div class="space-y-4">
-                <!-- FAQ Item 1 -->
                 <div class="faq-item group cursor-pointer p-6 glass-card rounded-[25px]">
                     <div class="flex justify-between items-center mb-4">
                         <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base">Tem taxa de visita técnica?</h4>
-                        <div class="faq-icon transition-transform duration-300"><i data-lucide="chevron-down" class="text-[#7ed957]"></i></div>
+                        <div class="faq-icon transition-transform duration-300"><i data-lucide="chevron-down" class="text-[#76ff03]"></i></div>
                     </div>
                     <div class="faq-answer text-gray-400 text-sm leading-relaxed">
-                        A visita técnica tem um valor fixo que cobre o deslocamento e o diagnóstico completo. Caso o orçamento de reparo seja aprovado, o valor da visita pode ser abatido no serviço final dependendo da promoção vigente.
+                        A visita tem um valor fixo de deslocamento e diagnóstico. Se o serviço for aprovado, esse valor é abatido no total final conforme política vigente.
                     </div>
                 </div>
 
-                <!-- FAQ Item 2 -->
                 <div class="faq-item group cursor-pointer p-6 glass-card rounded-[25px]">
                     <div class="flex justify-between items-center mb-4">
-                        <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base">Quais bairros vocês atendem?</h4>
-                        <div class="faq-icon transition-transform duration-300"><i data-lucide="chevron-down" class="text-[#7ed957]"></i></div>
+                        <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base">Quais regiões a GRUFIX atende?</h4>
+                        <div class="faq-icon transition-transform duration-300"><i data-lucide="chevron-down" class="text-[#76ff03]"></i></div>
                     </div>
                     <div class="faq-answer text-gray-400 text-sm leading-relaxed">
-                        Atendemos todos os bairros de Guarulhos e grande parte da cidade de São Paulo (Zona Norte, Leste, Oeste e Centro). Para outras regiões, consulte disponibilidade via WhatsApp.
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="faq-item group cursor-pointer p-6 glass-card rounded-[25px]">
-                    <div class="flex justify-between items-center mb-4">
-                        <h4 class="font-extrabold uppercase tracking-tight text-sm md:text-base">E se o problema não for resolvido na hora?</h4>
-                        <div class="faq-icon transition-transform duration-300"><i data-lucide="chevron-down" class="text-[#7ed957]"></i></div>
-                    </div>
-                    <div class="faq-answer text-gray-400 text-sm leading-relaxed">
-                        Em casos raros que exigem maquinário pesado de laboratório (como reparo de placa-mãe avançado), o técnico retira o equipamento com um termo de responsabilidade e o entrega de volta consertado em até 48h.
+                        Atendemos toda Guarulhos e pontos estratégicos da Grande São Paulo. Consulte seu CEP via WhatsApp.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final -->
-    <section class="py-32 px-6">
+    <!-- Rodapé (Idêntico ao Index) -->
+    <footer class="pt-24 pb-12 px-6 border-t border-white/5 bg-[#030303]">
         <div class="container mx-auto">
-            <div class="glass-card bg-gradient-to-br from-[#7ed957]/20 to-transparent p-12 md:p-24 rounded-[60px] text-center space-y-8 border-[#7ed957]/20 overflow-hidden relative">
-                <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#7ed957] opacity-10 rounded-full blur-[100px]"></div>
-                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none relative z-10">Pronto para simplificar <br> sua <span class="text-[#7ed957]">tecnologia?</span></h2>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                    <a href="index.html#contato" class="bg-[#7ed957] text-black px-10 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:scale-105 transition-all shadow-[0_15px_40px_rgba(126,217,87,0.2)]">Agendar Agora</a>
-                    <a href="https://wa.me/5511942535688" class="bg-white/5 border border-white/10 text-white px-10 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all">Dúvidas no WhatsApp</a>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-6">
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="logo-icon-small scale-90">
+                            <div class="energy-pulse"></div>
+                            <svg class="icon-svg" viewBox="0 0 200 200">
+                                <path fill="none" stroke="#76ff03" stroke-width="18" d="M160,100 A60,60 0 1,1 140,55" stroke-linecap="round"/>
+                                <path fill="white" d="M100,75 L120,100 L100,125 L80,100 Z" />
+                            </svg>
+                        </div>
+                        <span class="brand-logo-text text-xl uppercase">GRU<span>FIX</span></span>
+                    </a>
+                    <p class="text-gray-500 text-sm leading-relaxed">Assistência técnica de elite focada em conveniência e performance. Levamos a solução até si.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="https://wa.me/5511980960531" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-500 hover:text-[#76ff03] transition-colors"><i data-lucide="message-circle" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Navegação</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Início</a></li>
+                        <li><a href="comofunciona.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
+                        <li><a href="servicos.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Serviços</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-6">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Serviços</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm font-medium">
+                        <li>Manutenção de Celular</li>
+                        <li>Manutenção de PC</li>
+                        <li>Redes & Wi-Fi</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-6">
+                    <h4 class="text-xs font-black uppercase tracking-widest text-white">Contacto</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-gray-500 text-sm">
+                            <i data-lucide="phone" class="w-4 h-4 text-[#76ff03]"></i> (11) 98096-0531
+                        </li>
+                        <li class="flex items-center gap-3 text-gray-500 text-sm">
+                            <i data-lucide="mail" class="w-4 h-4 text-[#76ff03]"></i> suporte@grufix.com.br
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Rodapé (Mesmo do Index) -->
-    <footer class="py-20 px-6 bg-black border-t border-white/5">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-center md:text-left">
-            <div class="space-y-6">
-                <div class="flex items-center justify-center md:justify-start gap-3">
-                    <img src="jonnyzera/pluggo/pluggo-ae323842ba59fcfbd3ef834e25d09744e78cc2c0/temple/upload/PlugGo.jpeg" alt="Logo" class="w-8 h-8 rounded-lg opacity-60">
-                    <span class="text-xl font-black tracking-tighter text-gray-400">PLUGGO STORE</span>
-                </div>
-                <p class="font-medium text-sm leading-relaxed max-w-sm text-gray-600">Assistência técnica profissional in-loco. Tecnologia com conveniência e confiança.</p>
-            </div>
-            
-            <div class="flex gap-8 font-bold uppercase tracking-widest text-[9px] text-gray-500">
-                <a href="index.html" class="hover:text-white transition">Início</a>
-                <a href="index.html#servicos" class="hover:text-white transition">Serviços</a>
-                <a href="https://wa.me/5511942535688" class="hover:text-[#7ed957] transition">WhatsApp</a>
-            </div>
-
-            <div class="text-[10px] text-gray-700 font-bold uppercase tracking-widest">
-                &copy; 2024 PlugGo Store | Guarulhos & SP
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">&copy; 2024 GRUFIX | Todos os direitos reservados.</div>
+                <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">Desenvolvido por <span class="text-white">KODEO</span></div>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5511980960531" target="_blank" class="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-90 transition-all z-[200]">
+        <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
+    </a>
 
     <!-- Scripts -->
     <script>
         lucide.createIcons();
 
-        // Menu Mobile
         const mobileToggle = document.getElementById('mobileToggle');
         const navMenu = document.querySelector('.nav-menu');
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
-            if(navMenu.classList.contains('active')) icon.setAttribute('data-lucide', 'x');
-            else icon.setAttribute('data-lucide', 'menu');
+            icon.setAttribute('data-lucide', navMenu.classList.contains('active') ? 'x' : 'menu');
             lucide.createIcons();
         });
 
-        // Navbar Scroll
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
+            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // Animação de Revelação ao Scroll
         const revealElements = () => {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(el => {
-                const windowHeight = window.innerHeight;
-                const revealTop = el.getBoundingClientRect().top;
-                const revealPoint = 150;
-                if (revealTop < windowHeight - revealPoint) {
-                    el.classList.add('active');
-                }
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('active');
             });
         };
         window.addEventListener('scroll', revealElements);
         window.addEventListener('load', revealElements);
 
-        // FAQ Accordion
         document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
+            item.addEventListener('click', () => item.classList.toggle('active'));
         });
     </script>
 </body>

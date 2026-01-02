@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GRUFIX | Assistência Técnica de Elite em Guarulhos</title>
-    <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syncopate:wght@700&display=swap" rel="stylesheet">
-    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
@@ -130,7 +127,6 @@
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- Navegação -->
     <nav class="navbar fixed top-0 w-full z-[110] transition-all duration-300 h-20 flex items-center px-6 lg:px-12">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#inicio" class="flex items-center gap-4 relative z-[120]">
@@ -146,8 +142,8 @@
 
             <ul class="nav-menu hidden md:flex items-center gap-8">
                 <li><a href="#inicio" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Início</a></li>
-                <li><a href="#como-funciona" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
-                <li><a href="#servicos" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Serviços</a></li>
+                <li><a href="comofunciona.html" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
+                <li><a href="servicos.html" class="font-bold text-[10px] uppercase tracking-widest hover:text-[#76ff03] transition-colors">Serviços</a></li>
                 <li><a href="#contato" class="bg-[#76ff03] text-black px-7 py-2.5 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-white transition-all shadow-lg shadow-[#76ff03]/10">Chamar Técnico</a></li>
             </ul>
 
@@ -157,7 +153,6 @@
         </div>
     </nav>
 
-    <!-- Topo (Hero) -->
     <section id="inicio" class="min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden">
         <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 50px 50px; transform: perspective(500px) rotateX(60deg) translateY(-200px);"></div>
         
@@ -188,7 +183,6 @@
         </div>
     </section>
 
-    <!-- Como Funciona -->
     <section id="como-funciona" class="py-32 px-6 bg-[#030303]">
         <div class="container mx-auto">
             <div class="text-center mb-24 space-y-4">
@@ -222,7 +216,6 @@
         </div>
     </section>
 
-    <!-- Serviços -->
     <section id="servicos" class="py-32 px-6">
         <div class="container mx-auto">
             <div class="text-center mb-24 space-y-4">
@@ -231,7 +224,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Manutenção de Celular -->
                 <div class="service-card glass-card p-10 rounded-[35px] space-y-6 group">
                     <div class="text-[#76ff03] group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="smartphone" class="w-9 h-9"></i>
@@ -240,7 +232,6 @@
                     <p class="text-gray-500 text-sm leading-relaxed">Troca de tela, baterias, conectores e recuperação de aparelhos. Android e iPhone.</p>
                 </div>
 
-                <!-- Manutenção de PCs -->
                 <div class="service-card glass-card p-10 rounded-[35px] space-y-6 group">
                     <div class="text-[#76ff03] group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="monitor" class="w-9 h-9"></i>
@@ -249,7 +240,6 @@
                     <p class="text-gray-500 text-sm leading-relaxed">Lentidão, travamentos ou PC que não liga. Resolvemos no local com limpeza técnica.</p>
                 </div>
 
-                <!-- Redes & Wi-Fi -->
                 <div class="service-card glass-card p-10 rounded-[35px] space-y-6 group">
                     <div class="text-[#76ff03] group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="wifi" class="w-9 h-9"></i>
@@ -258,7 +248,6 @@
                     <p class="text-gray-500 text-sm leading-relaxed">Configuração de roteadores e mesh. Acabamos com os pontos cegos de internet.</p>
                 </div>
 
-                <!-- Suporte Empresarial -->
                 <div class="service-card glass-card p-10 rounded-[35px] space-y-6 group">
                     <div class="text-[#76ff03] group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="building-2" class="w-9 h-9"></i>
@@ -267,7 +256,6 @@
                     <p class="text-gray-500 text-sm leading-relaxed">Manutenção de frotas, configuração de servidores e backup em nuvem profissional.</p>
                 </div>
 
-                <!-- Instalações -->
                 <div class="service-card glass-card p-10 rounded-[35px] space-y-6 group">
                     <div class="text-[#76ff03] group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="printer" class="w-9 h-9"></i>
@@ -276,7 +264,6 @@
                     <p class="text-gray-500 text-sm leading-relaxed">Configuração de impressoras, câmeras e montagem de setups completos.</p>
                 </div>
 
-                <!-- Software & Vírus -->
                 <div class="service-card glass-card p-10 rounded-[35px] space-y-6 group">
                     <div class="text-[#76ff03] group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="shield-check" class="w-9 h-9"></i>
@@ -285,7 +272,6 @@
                     <p class="text-gray-500 text-sm leading-relaxed">Formatação com backup, remoção de vírus e instalação de softwares originais.</p>
                 </div>
 
-                <!-- Visita Express -->
                 <div class="service-card glass-card p-10 rounded-[35px] space-y-6 group border-[#76ff03]/20 md:col-span-2 lg:col-span-3">
                     <div class="flex items-center gap-6">
                         <div class="text-[#76ff03]"><i data-lucide="zap" class="w-10 h-10"></i></div>
@@ -299,7 +285,6 @@
         </div>
     </section>
 
-    <!-- Formulário -->
     <section id="contato" class="py-32 px-6">
         <div class="container mx-auto max-w-5xl">
             <div class="glass-card p-8 sm:p-16 rounded-[50px] border-white/5">
@@ -317,7 +302,6 @@
                         </div>
                     </div>
 
-                    <!-- Formulário -->
                     <form id="contactForm" class="space-y-4">
                         <input type="text" name="name" required class="input-round" placeholder="Seu Nome ou Empresa">
                         <div class="grid grid-cols-2 gap-4">
@@ -337,11 +321,9 @@
         </div>
     </section>
 
-    <!-- Rodapé Completo -->
     <footer class="pt-24 pb-12 px-6 border-t border-white/5 bg-[#030303]">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Coluna 1: Info e Logo -->
                 <div class="space-y-6">
                     <a href="#inicio" class="flex items-center gap-3">
                         <div class="logo-icon-small scale-90">
@@ -363,29 +345,26 @@
                     </div>
                 </div>
 
-                <!-- Coluna 2: Navegação -->
                 <div class="space-y-6">
                     <h4 class="text-xs font-black uppercase tracking-widest text-white">Navegação</h4>
                     <ul class="space-y-3">
                         <li><a href="#inicio" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Início</a></li>
-                        <li><a href="#como-funciona" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
-                        <li><a href="#servicos" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Serviços</a></li>
+                        <li><a href="comofunciona.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Como Funciona</a></li>
+                        <li><a href="servicos.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Serviços</a></li>
                         <li><a href="#contato" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Agendamento</a></li>
                     </ul>
                 </div>
 
-                <!-- Coluna 3: Serviços Populares -->
                 <div class="space-y-6">
                     <h4 class="text-xs font-black uppercase tracking-widest text-white">Serviços</h4>
                     <ul class="space-y-3">
-                        <li><a href="#servicos" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Conserto de Celular</a></li>
-                        <li><a href="#servicos" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Manutenção de PC</a></li>
-                        <li><a href="#servicos" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Redes & Wi-Fi</a></li>
-                        <li><a href="#servicos" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Suporte Empresarial</a></li>
+                        <li><a href="servicos.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Conserto de Celular</a></li>
+                        <li><a href="servicos.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Manutenção de PC</a></li>
+                        <li><a href="servicos.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Redes & Wi-Fi</a></li>
+                        <li><a href="servicos.html" class="text-gray-500 text-sm hover:text-[#76ff03] transition-colors">Suporte Empresarial</a></li>
                     </ul>
                 </div>
 
-                <!-- Coluna 4: Contacto Direto -->
                 <div class="space-y-6">
                     <h4 class="text-xs font-black uppercase tracking-widest text-white">Contacto</h4>
                     <ul class="space-y-4">
@@ -405,7 +384,6 @@
                 </div>
             </div>
 
-            <!-- Copyright e Créditos -->
             <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="text-[10px] text-gray-600 font-bold uppercase tracking-widest">
                     &copy; 2024 GRUFIX | Todos os direitos reservados.
@@ -421,12 +399,10 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Flutuante -->
     <a href="https://wa.me/5511980960531" target="_blank" class="fixed bottom-8 right-8 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-90 transition-all z-[200]">
         <i data-lucide="message-circle" class="w-7 h-7 text-white"></i>
     </a>
 
-    <!-- Scripts -->
     <script>
         lucide.createIcons();
 
