@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços Especializados | PlugGo Store - Suporte Técnico</title>
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --color-primary: #7ed957;
+            --color-primary-dark: #6bc244;
+        }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #080808; 
+            color: #f5f5f5; 
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar.scrolled { 
+            background: rgba(8, 8, 8, 0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid rgba(126, 217, 87, 0.1); 
+            height: 70px; 
+        }
+        
+        .nav-menu { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        @media (max-width: 768px) {
+            .nav-menu { 
+                position: fixed; 
+                top: -100%; 
+                left: 0; 
+                width: 100%; 
+                background: #080808; 
+                flex-direction: column; 
+                padding: 2.5rem; 
+                gap: 1.5rem; 
+                border-bottom: 2px solid var(--color-primary); 
+                z-index: 100; 
+            }
+            .nav-menu.active { top: 70px; }
+        }
+
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .glass-card:hover { 
+            border-color: var(--color-primary); 
+            background: rgba(126, 217, 87, 0.04);
+            transform: translateY(-10px);
+        }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .service-badge {
+            background: rgba(126, 217, 87, 0.1);
+            color: var(--color-primary);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navegação -->
+    <nav class="navbar fixed top-0 w-full z-[110] transition-all duration-300 h-20 flex items-center px-6 lg:px-12">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 relative z-[120]">
+                <div class="w-10 h-10 bg-white rounded-xl overflow-hidden flex items-center justify-center border-2 border-[#7ed957]">
+                    <img src="jonnyzera/pluggo/pluggo-ae323842ba59fcfbd3ef834e25d09744e78cc2c0/temple/upload/PlugGo.jpeg" alt="Logo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/40'">
+                </div>
+                <span class="text-xl font-extrabold tracking-tighter uppercase">PLUGGO<span class="text-[#7ed957]">STORE</span></span>
+            </a>
+
+            <ul class="nav-menu hidden md:flex items-center gap-8">
+                <li><a href="index.html" class="font-bold text-[11px] uppercase tracking-widest hover:text-[#7ed957] transition-colors">Início</a></li>
+                <li><a href="como-funciona.html" class="font-bold text-[11px] uppercase tracking-widest hover:text-[#7ed957] transition-colors">Como Funciona</a></li>
+                <li><a href="#solucoes" class="font-bold text-[11px] uppercase tracking-widest text-[#7ed957]">Serviços</a></li>
+                <li><a href="index.html#contato" class="bg-[#7ed957] text-black px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-white transition-all">Chamar Técnico</a></li>
+            </ul>
+
+            <button id="mobileToggle" class="md:hidden p-2 text-[#7ed957] relative z-[120]">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header da Página -->
+    <section class="pt-40 pb-20 px-6 bg-gradient-to-b from-transparent to-[#080808]">
+        <div class="container mx-auto text-center max-w-4xl">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
+                <span class="text-[9px] font-black uppercase tracking-[0.3em] text-[#7ed957]">O Catálogo Completo</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-none uppercase mb-8">
+                Nossas <br> <span class="text-[#7ed957]">Soluções.</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+                Da manutenção básica de rotina à infraestrutura complexa para empresas. Tudo o que você precisa em tecnologia, no seu local.
+            </p>
+        </div>
+    </section>
+
+    <!-- Grid de Serviços -->
+    <section id="solucoes" class="py-20 px-6">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Serviço 1: Manutenção de Hardware -->
+                <div class="reveal glass-card p-8 rounded-[40px] flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-[#7ed957]/10 rounded-2xl flex items-center justify-center text-[#7ed957] mb-8">
+                            <i data-lucide="cpu" class="w-7 h-7"></i>
+                        </div>
+                        <span class="service-badge mb-4 inline-block">Hardware</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Manutenção de PCs & Notes</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">Limpeza técnica preventiva, troca de pasta térmica de alta performance, substituição de telas, teclados, baterias e reparo de carcaças.</p>
+                    </div>
+                    <ul class="space-y-3 mt-6 border-t border-white/5 pt-6">
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Upgrade de Memória e SSD
+                        </li>
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Reparo em Placa Mãe
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 2: Redes & Wi-Fi -->
+                <div class="reveal glass-card p-8 rounded-[40px] border-[#7ed957]/20 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-[#7ed957]/20 rounded-2xl flex items-center justify-center text-[#7ed957] mb-8 shadow-[0_0_20px_rgba(126,217,87,0.2)]">
+                            <i data-lucide="router" class="w-7 h-7"></i>
+                        </div>
+                        <span class="service-badge mb-4 inline-block">Conectividade</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4 text-[#7ed957]">Redes Estruturadas & Wi-Fi</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">Configuração de roteadores mesh para cobertura total, cabeamento estruturado Cat6, Wi-Fi empresarial para visitantes e segurança de rede.</p>
+                    </div>
+                    <ul class="space-y-3 mt-6 border-t border-white/5 pt-6">
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Fim dos Pontos Cegos
+                        </li>
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Configuração de VPN
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 3: Suporte Empresarial -->
+                <div class="reveal glass-card p-8 rounded-[40px] flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-[#7ed957]/10 rounded-2xl flex items-center justify-center text-[#7ed957] mb-8">
+                            <i data-lucide="briefcase" class="w-7 h-7"></i>
+                        </div>
+                        <span class="service-badge mb-4 inline-block">Corporativo</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Outsourcing de T.I</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">Contratos de manutenção para pequenas e médias empresas. Garantimos que sua equipe não pare por falhas tecnológicas.</p>
+                    </div>
+                    <ul class="space-y-3 mt-6 border-t border-white/5 pt-6">
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Backup Automático em Nuvem
+                        </li>
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Inventário de Hardware
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 4: Software -->
+                <div class="reveal glass-card p-8 rounded-[40px] flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-[#7ed957]/10 rounded-2xl flex items-center justify-center text-[#7ed957] mb-8">
+                            <i data-lucide="terminal" class="w-7 h-7"></i>
+                        </div>
+                        <span class="service-badge mb-4 inline-block">Sistemas</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Sistemas & Vírus</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">Formatação profissional com backup, remoção de malwares, instalação de Windows original e softwares de produtividade.</p>
+                    </div>
+                    <ul class="space-y-3 mt-6 border-t border-white/5 pt-6">
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Otimização de Boot
+                        </li>
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Licenciamento Original
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 5: Segurança -->
+                <div class="reveal glass-card p-8 rounded-[40px] flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-[#7ed957]/10 rounded-2xl flex items-center justify-center text-[#7ed957] mb-8">
+                            <i data-lucide="shield-check" class="w-7 h-7"></i>
+                        </div>
+                        <span class="service-badge mb-4 inline-block">Monitoramento</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">CFTV & Segurança Wi-Fi</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">Instalação e configuração de câmeras IP, monitoramento remoto pelo celular e segurança de dados local.</p>
+                    </div>
+                    <ul class="space-y-3 mt-6 border-t border-white/5 pt-6">
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Acesso pelo Smartphone
+                        </li>
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Gravação em Nuvem
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Serviço 6: Customização -->
+                <div class="reveal glass-card p-8 rounded-[40px] flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-[#7ed957]/10 rounded-2xl flex items-center justify-center text-[#7ed957] mb-8">
+                            <i data-lucide="palette" class="w-7 h-7"></i>
+                        </div>
+                        <span class="service-badge mb-4 inline-block">Gamer / Creator</span>
+                        <h3 class="text-2xl font-black uppercase tracking-tight mb-4">Montagem de Setups</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">Consultoria para escolha de peças, montagem de PCs gamer, organização de cabos (Cable Management) e iluminação RGB.</p>
+                    </div>
+                    <ul class="space-y-3 mt-6 border-t border-white/5 pt-6">
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Suporte a Periféricos
+                        </li>
+                        <li class="flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                            <i data-lucide="check" class="w-4 h-4 text-[#7ed957]"></i> Performance Máxima
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Enterprise -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-7xl">
+            <div class="glass-card rounded-[60px] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 border-[#7ed957]/10 overflow-hidden relative">
+                <div class="lg:w-1/2 space-y-8 relative z-10">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">Soluções <br><span class="text-[#7ed957]">Enterprise</span></h2>
+                    <p class="text-gray-400 text-lg font-medium leading-relaxed italic">Atendemos escritórios, clínicas e comércios com planos mensais que reduzem seus custos e evitam paradas inesperadas.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-widest">
+                            <i data-lucide="zap" class="w-4 h-4 text-[#7ed957]"></i> Suporte Prioritário
+                        </div>
+                        <div class="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full border border-white/10 text-[10px] font-bold uppercase tracking-widest">
+                            <i data-lucide="lock" class="w-4 h-4 text-[#7ed957]"></i> Segurança de Dados
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 relative z-10">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Suporte Empresa" class="w-full h-[400px] object-cover rounded-[40px] shadow-2xl">
+                </div>
+                <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-[#7ed957] opacity-5 rounded-full blur-[100px]"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="py-32 px-6">
+        <div class="container mx-auto text-center space-y-12">
+            <h2 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tighter leading-none">O serviço que você precisa <br> <span class="text-[#7ed957]">onde você estiver.</span></h2>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="index.html#contato" class="bg-[#7ed957] text-black px-12 py-6 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:scale-105 transition-all shadow-[0_20px_50px_rgba(126,217,87,0.3)]">Solicitar Orçamento</a>
+                <a href="https://wa.me/5511942535688" target="_blank" class="bg-white text-black px-12 py-6 rounded-full font-black text-xs uppercase tracking-[0.3em] hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
+                    WhatsApp Direto <i data-lucide="message-circle" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="py-20 px-6 bg-black border-t border-white/5">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+            <div class="space-y-6 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                    <img src="jonnyzera/pluggo/pluggo-ae323842ba59fcfbd3ef834e25d09744e78cc2c0/temple/upload/PlugGo.jpeg" alt="Logo" class="w-8 h-8 rounded-lg opacity-60">
+                    <span class="text-xl font-black tracking-tighter text-gray-400">PLUGGO STORE</span>
+                </div>
+                <p class="font-medium text-sm text-gray-600 max-w-sm">Assistência técnica profissional in-loco. Tecnologia com conveniência e confiança.</p>
+            </div>
+            
+            <div class="flex gap-8 font-bold uppercase tracking-widest text-[9px] text-gray-500">
+                <a href="index.html" class="hover:text-white transition">Início</a>
+                <a href="como-funciona.html" class="hover:text-white transition">Como Funciona</a>
+                <a href="https://wa.me/5511942535688" class="hover:text-[#7ed957] transition">Suporte</a>
+            </div>
+
+            <div class="text-[10px] text-gray-700 font-bold uppercase tracking-widest text-center">
+                &copy; 2024 PlugGo Store | Guarulhos & SP
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Menu Mobile
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.querySelector('.nav-menu');
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.setAttribute('data-lucide', navMenu.classList.contains('active') ? 'x' : 'menu');
+            lucide.createIcons();
+        });
+
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Revelação ao Scroll
+        const revealElements = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 100) el.classList.add('active');
+            });
+        };
+        window.addEventListener('scroll', revealElements);
+        window.addEventListener('load', revealElements);
+    </script>
+</body>
+</html>
